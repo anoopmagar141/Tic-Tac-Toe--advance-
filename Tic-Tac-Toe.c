@@ -100,3 +100,23 @@ int checkWinner(char board[SIZE][SIZE]) {
     // No winner yet
     return 0;
 }
+// Function for player move
+void playerMove(char board[SIZE][SIZE], char symbol) {
+    int row, col;
+
+    while (1) {
+        printf("Enter row and column (1-3 1-3): ");
+        scanf("%d %d", &row, &col);
+
+        // Adjust for zero-based index
+        row--;
+        col--;
+
+        if (isMoveValid(board, row, col)) {
+            board[row][col] = symbol;
+            break;
+        } else {
+            printf("Invalid move. Try again.\n");
+        }
+    }
+}
