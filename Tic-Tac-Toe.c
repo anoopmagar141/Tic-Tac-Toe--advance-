@@ -3,6 +3,8 @@
 #include <time.h>
 
 #define SIZE 3
+
+// Function prototypes
 void displayBoard(char board[SIZE][SIZE]);
 int checkWinner(char board[SIZE][SIZE]);
 void playerMove(char board[SIZE][SIZE], char symbol);
@@ -10,6 +12,7 @@ void computerMove(char board[SIZE][SIZE], char symbol);
 int isMoveValid(char board[SIZE][SIZE], int row, int col);
 int isBoardFull(char board[SIZE][SIZE]);
 
+// Main function
 int main() {
     char board[SIZE][SIZE];
     int mode, winner = 0;
@@ -100,6 +103,7 @@ int checkWinner(char board[SIZE][SIZE]) {
     // No winner yet
     return 0;
 }
+
 // Function for player move
 void playerMove(char board[SIZE][SIZE], char symbol) {
     int row, col;
@@ -120,6 +124,7 @@ void playerMove(char board[SIZE][SIZE], char symbol) {
         }
     }
 }
+
 // Function for computer move
 void computerMove(char board[SIZE][SIZE], char symbol) {
     srand(time(NULL));
@@ -135,10 +140,12 @@ void computerMove(char board[SIZE][SIZE], char symbol) {
         }
     }
 }
+
 // Function to check if a move is valid
 int isMoveValid(char board[SIZE][SIZE], int row, int col) {
     return (row >= 0 && row < SIZE && col >= 0 && col < SIZE && board[row][col] == ' ');
 }
+
 // Function to check if the board is full
 int isBoardFull(char board[SIZE][SIZE]) {
     for (int i = 0; i < SIZE; i++) {
