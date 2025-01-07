@@ -135,3 +135,7 @@ void computerMove(char board[SIZE][SIZE], char symbol) {
         }
     }
 }
+// Function to check if a move is valid
+int isMoveValid(char board[SIZE][SIZE], int row, int col) {
+    return (row >= 0 && row < SIZE && col >= 0 && col < SIZE && board[row][col] == ' ');
+}
