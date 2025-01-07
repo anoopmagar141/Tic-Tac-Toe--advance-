@@ -120,3 +120,18 @@ void playerMove(char board[SIZE][SIZE], char symbol) {
         }
     }
 }
+// Function for computer move
+void computerMove(char board[SIZE][SIZE], char symbol) {
+    srand(time(NULL));
+    int row, col;
+
+    while (1) {
+        row = rand() % SIZE;
+        col = rand() % SIZE;
+
+        if (isMoveValid(board, row, col)) {
+            board[row][col] = symbol;
+            break;
+        }
+    }
+}
