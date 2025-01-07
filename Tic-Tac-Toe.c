@@ -81,3 +81,22 @@ void displayBoard(char board[SIZE][SIZE]) {
     }
     printf("\n");
 }
+
+// Function to check if there is a winner
+int checkWinner(char board[SIZE][SIZE]) {
+    // Check rows and columns
+    for (int i = 0; i < SIZE; i++) {
+        if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ')
+            return (board[i][0] == 'X') ? 1 : 2;
+        if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ')
+            return (board[0][i] == 'X') ? 1 : 2;
+    }
+    // Check diagonals
+    if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ')
+        return (board[0][0] == 'X') ? 1 : 2;
+    if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ')
+        return (board[0][2] == 'X') ? 1 : 2;
+
+    // No winner yet
+    return 0;
+}
