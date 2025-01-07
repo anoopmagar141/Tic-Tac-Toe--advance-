@@ -139,3 +139,13 @@ void computerMove(char board[SIZE][SIZE], char symbol) {
 int isMoveValid(char board[SIZE][SIZE], int row, int col) {
     return (row >= 0 && row < SIZE && col >= 0 && col < SIZE && board[row][col] == ' ');
 }
+// Function to check if the board is full
+int isBoardFull(char board[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            if (board[i][j] == ' ')
+                return 0;
+        }
+    }
+    return 1;
+}
